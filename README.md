@@ -17,4 +17,4 @@ Mi a win condition?
 🔴 UI \
 🔴 Tutorial kép/gomb \
 🔴 Score System? Felvehető dolgok alapján? Megmaradt idő alapján? Legyen mérve egyáltalán az idő? \
-🔴 MOTD - nagyon \
+🔴 MOTD? \
