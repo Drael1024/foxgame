@@ -7,37 +7,45 @@ using UnityEngine.UI;
 public class BallSrc : MonoBehaviour
 
 {
-    public Vector3 startPosition;
-    public TextMeshProUGUI screenText;
-    public int points = 0;
+    
+    
+    
     float currentTime = 0.0f;
     float startingTime = 60f;
     public TextMeshProUGUI countDown;
     public GameObject loser;
     public GameObject winner;
+    float destroytimeLeft = 15f;
+    List<GameObject> destobj = new List<GameObject>();
+    public GameObject firstball;
+    public GameObject secondball;
+    public GameObject mainball;
+ 
+
+
+    
    
-    private void Awake()
-    {
-        startPosition = transform.position;
-    }
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.transform.tag == "Goal")
-        {
-            
-            Debug.Log("Nyertél!");
-            transform.position = startPosition;
-            points++;
-            screenText.text = "Score: " + points.ToString();
-            
-            Debug.Log(points);
-        }
-    }
 
     private void Start()
     {
-        screenText.text = "Score: " + points.ToString();
+        
         currentTime = startingTime;
+        destobj.Add(firstball);
+        destobj.Add(secondball);
+    }
+
+   
+    public void LotteryBall()
+    {
+        int index = Random.Range(0, destobj.Count);
+
+        GameObject itemToDestroy = destobj[index];
+        destobj.RemoveAt(index);
+        GameObject.Destroy(itemToDestroy);
+        itemToDestroy = null;
+
+        destroytimeLeft += 15.0f;
+        Debug.Log(index);
     }
 
     private void Update()
@@ -48,22 +56,22 @@ public class BallSrc : MonoBehaviour
         {
             countDown.color = Color.red;
 
-            if(currentTime<=0)
-            {
-                currentTime = 0;
-                if (points == 0 && currentTime == 0)
-                {
-                    loser.SetActive(true);
-                    Debug.Log("Lose");
-                }
-                else 
-                {
-                    winner.SetActive(true);
-                    Debug.Log("Win");
-                }
-            }
+            
         }
-        
-       
+
+        if (destobj.Count != 0)
+        {
+            destroytimeLeft -= Time.deltaTime;
+            if (destroytimeLeft < 0)
+            {
+
+                
+                LotteryBall();
+
+            }
+
+        }
+
+
     }
 }

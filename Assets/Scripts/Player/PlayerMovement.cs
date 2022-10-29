@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	bool jump = false;
 	bool crouch = false;
 	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -25,11 +26,12 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetButtonDown("Crouch"))
 		{
 			crouch = true;
-		} else if (Input.GetButtonUp("Crouch"))
+		} 
+		else if (Input.GetButtonUp("Crouch"))
 		{
 			crouch = false;
 		}
-
+		
 	}
 
 	void FixedUpdate ()
