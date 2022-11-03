@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Through
   - Goal
+  - Frog
+  - ball
   layers:
   - Default
   - TransparentFX
