@@ -13,18 +13,19 @@ public class BallSrc : MonoBehaviour
     float currentTime = 0.0f;
     float startingTime = 60f;
     public TextMeshProUGUI countDown;
-    public GameObject loser;
-    public GameObject winner;
     float destroytimeLeft = 15f;
     List<GameObject> destobj = new List<GameObject>();
     public GameObject firstball;
     public GameObject secondball;
     public GameObject mainball;
- 
+    public int points = 0;
+    public GameObject loser;
+    public GameObject winner;
 
 
-    
-   
+
+
+
 
     private void Start()
     {
@@ -70,6 +71,23 @@ public class BallSrc : MonoBehaviour
 
             }
 
+        }
+
+        
+        if (currentTime <= 0)
+        {
+
+
+            if (points == 0 && currentTime == 0)
+            {
+                loser.SetActive(true);
+                Debug.Log("Lose");
+            }
+            else
+            {
+                winner.SetActive(true);
+                Debug.Log("Win");
+            }
         }
 
 

@@ -17,12 +17,9 @@ public class Ball : MonoBehaviour
     public void resetPosition()
     {
 
-        Debug.Log("Nyertél!");
+        
         transform.position = startPosition;
         
-
-
-        Debug.Log("Score:" + points);
 
     }
     // Start is called before the first frame update
