@@ -18,6 +18,7 @@ public class BallSrc : MonoBehaviour
     public GameObject firstball;
     public GameObject secondball;
     public GameObject mainball;
+    public GameObject fallingball;
     public int points = 0;
     public GameObject loser;
     public GameObject winner;
@@ -33,6 +34,7 @@ public class BallSrc : MonoBehaviour
         currentTime = startingTime;
         destobj.Add(firstball);
         destobj.Add(secondball);
+        destobj.Add(fallingball);
     }
 
    
